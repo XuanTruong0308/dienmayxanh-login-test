@@ -1,4 +1,4 @@
-package com.dienmayxanh.tests;
+package com.practicetestautomation.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +30,7 @@ public class BaseTest {
         
         // For CI/CD environments, run in headless mode
         if (System.getProperty("headless", "false").equals("true")) {
-            options.addArguments("--headless");
+            options.addArguments("--headless=new");
             options.addArguments("--window-size=1920,1080");
         }
 
