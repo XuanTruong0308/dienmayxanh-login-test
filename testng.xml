@@ -3,7 +3,7 @@
 <suite name="Dien May Xanh Login Test Suite" parallel="false">
     <test name="Login Phone Number Validation Tests">
         <classes>
-            <class name="com.dienmayxanh.tests.LoginTest"/>
+            <class name="com.practicetestautomation.tests.LoginTest"/>
         </classes>
     </test>
 </suite>
