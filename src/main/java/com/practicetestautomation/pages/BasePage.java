@@ -8,9 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-/**
- * Base Page class containing common methods and utilities
- */
 public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -21,48 +18,42 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    /**
-     * Wait for element to be visible
-     */
     protected void waitForElementVisible(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    /**
-     * Wait for element to be clickable
-     */
     protected void waitForElementClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    /**
-     * Click on element
-     */
+    protected void delay(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            e.printStackTrace();
+        }
+    }
+
     protected void clickElement(WebElement element) {
         waitForElementClickable(element);
         element.click();
+        delay(3000);  // Delay 3 giây sau khi click
     }
 
-    /**
-     * Enter text into element
-     */
     protected void enterText(WebElement element, String text) {
         waitForElementVisible(element);
         element.clear();
+        delay(1000);  // Delay 1 giây sau khi clear
         element.sendKeys(text);
+        delay(2000);  // Delay 2 giây sau khi nhập text
     }
 
-    /**
-     * Get text from element
-     */
     protected String getElementText(WebElement element) {
         waitForElementVisible(element);
         return element.getText();
     }
 
-    /**
-     * Check if element is displayed
-     */
     protected boolean isElementDisplayed(WebElement element) {
         try {
             return element.isDisplayed();

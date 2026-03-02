@@ -23,10 +23,6 @@ public class BaseTest {
         options.addArguments("--disable-blink-features=AutomationControlled");
         options.addArguments("--disable-extensions");
 
-        // ==============================
-        // PRODUCTION LOGIC
-        // ==============================
-
         boolean isCI = System.getenv("CI") != null;
 
         if (isCI) {
